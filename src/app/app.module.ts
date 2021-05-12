@@ -17,6 +17,8 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HeroeTargetaComponent } from './components/heroe-targeta/heroe-targeta.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { HeroeTargetaComponent } from './components/heroe-targeta/heroe-targeta.
   imports: [
     BrowserModule,
     FormsModule,
-    APP_RAUTING
+    APP_RAUTING,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [HeroesService],
   bootstrap: [AppComponent]
